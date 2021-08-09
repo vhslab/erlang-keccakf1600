@@ -92,8 +92,10 @@ CXXFLAGS += -I"$(ERTS_INCLUDE_DIR)" -I"$(ERL_INTERFACE_INCLUDE_DIR)"
 
 ifeq ($(OTP_VERSION),"23")
     LDLIBS += -L"$(ERL_INTERFACE_LIB_DIR)" -lei
+else ifeq ($(OTP_VERSION),"24")
+    LDLIBS += -L"$(ERL_INTERFACE_LIB_DIR)" -lei
 else
-    LDLIBS += -L"$(ERL_INTERFACE_LIB_DIR)" -lerl_interface -lei
+	LDLIBS += -L"$(ERL_INTERFACE_LIB_DIR)" -lerl_interface -lei
 endif
 
 # Verbosity.
